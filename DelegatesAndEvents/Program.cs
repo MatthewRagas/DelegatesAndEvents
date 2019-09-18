@@ -6,32 +6,23 @@ namespace DelegatesAndEvents
     {
         static void Main(string[] args)
         {
-            ArrayList list = new ArrayList();
-            int[] arrayList = new int[4];            
-            arrayList[0] = 1;
-            arrayList[1] = 2;
-            arrayList[2] = 3;
-            arrayList[3] = 4;
-            
 
-            for (int i = 0; i < arrayList.Length; i++)
-            {
-                Console.WriteLine(arrayList[i]);
-            }
+            ListWithChangedEvent list = new ListWithChangedEvent();            
+            EventListener listener = new EventListener(list);
 
-            Console.ReadKey();
-            arrayList = list.Add(arrayList, 5);
-            Console.ReadKey();
-            arrayList = list.Add(arrayList, 6);
-            Console.ReadKey();
-            arrayList = list.Add(arrayList, 99);
+            list.Add(12);
+            list.Add(15);
+            list.Add(24);
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(5);
+            list.Add(6);
+            list.Fizzbuzz();
+            list.Clear();            
+            listener.Detatch();
 
-            //for (int i = 0; i < arrayList.Length; i++)
-            //{
-            //    Console.WriteLine(arrayList[i]);
-            //}
-
-            Console.ReadKey();
+            Console.ReadKey();                       
         }
     }
 }
