@@ -88,11 +88,11 @@ namespace DelegatesAndEvents
         {
             set
             {
-                index = (int)value;
+                _list[index] = value;
             }
             get
             {
-                return index;
+                return _list[index];
             }
         }
 
